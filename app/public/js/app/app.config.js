@@ -14,6 +14,12 @@
       name: 'app',
       abstract: true,
       component: 'appComponent',
+    })
+    .state({
+      name: 'ads',
+      parent: 'app',
+      url: '/',
+      component: 'ads'
     });
  }
 }());

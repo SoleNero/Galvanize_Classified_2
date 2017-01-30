@@ -7,7 +7,7 @@
         });
         
     controller.$inject = ['$http'];
-
+    console.log("you're in app.component");
     function controller($http) {
         const vm = this;
 
