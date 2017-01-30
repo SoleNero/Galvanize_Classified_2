@@ -6,7 +6,6 @@
             controller: controller
         });
         
-        console.log("you're in app.component");
     controller.$inject = ['$http'];
 
     function controller($http) {
