@@ -16,10 +16,10 @@
       component: 'appComponent',
     })
     .state({
-      name: 'ads',
+      name: 'classified',
       parent: 'app',
       url: '/',
-      component: 'ads'
+      component: 'classified'
     });
  }
 }());

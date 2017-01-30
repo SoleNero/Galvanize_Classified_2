@@ -1,12 +1,12 @@
 (function () { 
   'use strict';
   angular.module('app')
-    .component('ads', {
-      templateUrl: '/js/ads/ads.template.html',
+    .component('classified', {
+      templateUrl: '/js/classified/classified.template.html',
       controller: controller
     });
 
-    console.log("you're in ads.component");
+    console.log("you're in classified.component");
     // controller.$inject = ['$http'];
     function controller() {
         const vm = this;
