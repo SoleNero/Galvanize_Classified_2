@@ -16,9 +16,9 @@ Requirements
 
 You are responsible for:
 
- Forking and cloning this GitHub Repo.
- Creating a simple Angular front end.
- Deployment of the App on Heroku.
+Forking and cloning this GitHub Repo.
+Creating a simple Angular front end.
+Deployment of the App on Heroku.
 Functionality
 
 The app should do the following:

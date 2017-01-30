@@ -6,16 +6,18 @@
       controller: controller
     });
 
-    console.log("you're in classified.component");
-    // controller.$inject = ['$http'];
-    function controller() {
+
+    controller.$inject = ['classifiedService'];
+    function controller(classifiedService) {
         const vm = this;
 
-        // vm.$onInit = onInit;
+        vm.$onInit = onInit;
         
-        // function onInit() {
-        //   console.log("you're in onInit ads.component");
-        // }
+        function onInit() { 
+        classifiedService.all()
+          .then(ads => vm.ads = ads);
+          console.log(vm.ads);
+       }
     }
 
 
