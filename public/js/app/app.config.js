@@ -1,21 +1,22 @@
-(function () { 
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('app')
-  .config(config)
+  angular.module("app")
+    .config(config);
 
-config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-function config($stateProvider, $urlRouterProvider, $locationProvider) { 
-$locationProvider.html5Mode(true);
+    console.log("You're in app.config!");
 
-$stateProvider
-.state({
-  name: 'app',
-  abstract: true,
-  component: 'app',
-});
+  function config($stateProvider, $urlRouterProvider, $locationProvider){
+    $locationProvider.html5Mode(true);
+
+    console.log("you're in app.config in config function");
+    $stateProvider
+    .state({
+      name: 'app',
+      abstract: true,
+      component: 'app',
+    });
  }
-
-
- }());
+}());

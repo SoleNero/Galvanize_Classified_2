@@ -1,21 +1,21 @@
 (function() {
-  'use strict';
+    'use strict';
+    angular.module("app")
+        .component("app", {
+            templateUrl: 'js/app/app.template.html',
+            controller: controller
+        });
+        console.log("I'm in the app.component");
+    controller.$inject = ['$http'];
 
-  angular.module('app')
-    .component('app', {
-      controller: controller,
-      tampleteUrl: '/js/app/app.tamplete.html'
-    });
+    function controller($http) {
+        const vm = this;
 
-    controller.$inject= ['$http'];
-/* jshint validthis: true */
-    function controller($http) { 
-      const vm = this;
+        vm.$onInit = onInit;
 
-      vm.$onInit = onInit;
+        function onInit() {
+            
+        }
+    }
 
-      function onInit() { 
-        console.log('Connected to app.component!'); }
-     }
-
-  }());
+}());
