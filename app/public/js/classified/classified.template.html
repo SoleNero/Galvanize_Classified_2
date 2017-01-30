@@ -1,13 +1,16 @@
-<form>
-  <fieldset>
-    <legend>All Advertises</legend>
+
+    <h3>All Advertises</h3>
     <div class="media-left" ng-repeat="ad in $ctrl.ads">
       <div><img style="width: 100px; float: left; padding: 20px;"ng-src="{{ad.item_image}}" class="media-object"></div>
       <div><p>{{ad.title}}</p>
       <p>{{ad.description}}</p>
       <p>Price: {{ad.price}}</p></div>
     </div>
+    <div on-submit="$ctrl.createAd(ad)" button-text="Create Ad" post="$ctrl.ad">
+  <form name="form" novalidate ng-submit="$ctrl.submit()">
+  <fieldset>
     <legend>Post a new ad</legend>
+    <div>
     <p>
       <input type="text" name="title" id="post" placeholder="title"/>
       <label for="post">Title</label>
@@ -24,5 +27,8 @@
       <input type="url" name="image" id="image" placeholder="image url"/>
       <label for="image">Item Image</label>
     </p>
+      <input type="submit" class="btn btn-primary">
+    </div>
   </fieldset>
 </form>
+</div>
