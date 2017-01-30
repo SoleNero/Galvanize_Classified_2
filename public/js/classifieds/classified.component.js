@@ -7,15 +7,18 @@
        controller: controller
     });
 
-    controller.$inject = ['$http'];
-    function controller ($http) { 
+    controller.$inject = ['adsService'];
+    function controller (adsService) { 
       const vm = this;
 
       vm.$onInit = onInit;
 
       function onInit() { 
-        console.log("classified controller onInit");
+        adsService.all()
+          .then(ads => vm.ads = ads);
+          console.log(vm.ads);
        }
+
 
      }
  }());

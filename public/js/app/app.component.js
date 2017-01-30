@@ -14,7 +14,7 @@
         vm.$onInit = onInit;
         
         function onInit() {
-            console.log("I'm in the app.component");
+          vm.addingAd = false;
         }
     }
 
