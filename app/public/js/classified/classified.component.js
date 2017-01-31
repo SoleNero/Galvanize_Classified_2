@@ -17,19 +17,17 @@
         function onInit() { 
         classifiedService.all()
           .then(ads => vm.ads = ads);
-          console.log(vm.ads);
        }
 
-       function createAd(ad){
-         classifiedService.create(ad)
+       function createAd(){
+         
+         classifiedService.create(vm.ad)
            .then(ad => {
+             vm.ad = ad;
              vm.ads.push(ad);
+             console.log(vm.ad);
              delete vm.ad;
            });
          }
-
-         vm.submit = function () {
-          vm.onSubmit({ad: vm.ad});
-        };
   }
  }());
