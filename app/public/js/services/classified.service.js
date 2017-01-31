@@ -28,11 +28,11 @@
             });
         }
 
+
       function create(ad){
         return $http.post('api/classifieds', ad)
           .then(response => {
             response.data.ad = {};
-            console.log(response.data)
             return response.data;
           });
       }
