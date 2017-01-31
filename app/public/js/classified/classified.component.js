@@ -14,6 +14,7 @@
         vm.$onInit = onInit;
         vm.createAd = createAd;
         
+        
         function onInit() { 
         classifiedService.all()
           .then(ads => vm.ads = ads);

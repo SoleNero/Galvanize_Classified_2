@@ -20,6 +20,12 @@
       parent: 'app',
       url: '/',
       component: 'classified'
+    })
+    .state({
+      name: 'edit',
+      parent: 'app',
+      url: '/edit',
+      component:'edit'
     });
  }
 }());

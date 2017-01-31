@@ -11,7 +11,8 @@
     function service ($http) { 
       this.all = all;
       this.create = create;
-      
+      this.getById = getById;
+      this.edit = edit;
 
 
       function all() { 
@@ -19,7 +20,14 @@
           .then(response => response.data); 
        }
 
-    
+       function getById(id) { 
+         return $http.get(`/api/classifieds/${id}`)
+            .then(response => {
+              const ad = response.data;
+              return ad;
+            });
+        }
+
       function create(ad){
         return $http.post('api/classifieds', ad)
           .then(response => {
@@ -28,5 +36,12 @@
             return response.data;
           });
       }
+
+      function edit(id, ad) { 
+        return $http.patch(`/api/classifieds/${id}`, ad)
+          .then(response => {
+            return response.data;
+          });
+       }
      }
 }());
