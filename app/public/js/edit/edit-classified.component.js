@@ -7,7 +7,7 @@ angular.module('app')
   });
 
   controller.$inject = ['$stateParams', '$state', 'classifiedService'];
-    function controller(classifiedService, $state, $stateParams) {
+    function controller($stateParams, $state, classifiedService) {
         const vm = this;
 
         vm.$onInit = onInit;
