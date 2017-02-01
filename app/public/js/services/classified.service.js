@@ -5,16 +5,15 @@
     .module('app')
     .service('classifiedService', service);
 
-   service.$inject = ['$http'];
+   service.$inject = ['$http', '$state', '$stateParams'];
 
-
-    function service ($http) { 
+    function service ($http, $state, $stateParams) { 
       this.all = all;
       this.create = create;
       this.getById = getById;
       this.edit = edit;
-
-
+      this.del = del;
+      
       function all() { 
         return $http.get('/api/classifieds')
           .then(response => response.data); 
@@ -28,7 +27,6 @@
             });
         }
 
-
       function create(ad){
         return $http.post('api/classifieds', ad)
           .then(response => {
@@ -37,9 +35,16 @@
           });
       }
 
-      function edit(id, ad) { 
+      function edit(ad, id) { 
         return $http.patch(`/api/classifieds/${id}`, ad)
           .then(response => {
+            return response.data;
+          });
+       }
+
+      function del() { 
+        return $http.delete(`/api/classifieds/${$stateParams.id}`)
+          .then(response =>{
             return response.data;
           });
        }

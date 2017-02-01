@@ -24,7 +24,7 @@
     .state({
       name: 'edit',
       parent: 'app',
-      url: '/edit',
+      url: '/:id/edit',
       component:'edit'
     });
  }

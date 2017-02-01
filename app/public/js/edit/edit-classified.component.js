@@ -12,15 +12,21 @@ angular.module('app')
 
         vm.$onInit = onInit;
         vm.editAd = editAd;
+        vm.deleteAd = deleteAd;
 
         function onInit() { 
           classifiedService.getById($stateParams.id).then(ad => vm.ad = ad);
          }
 
 
-        function editAd(ad) { 
-          classifiedService.edit($stateParams.id, ad)
+        function editAd() { 
+          classifiedService.edit(vm.ad, $stateParams.id)
             .then(() => $state.go('classified'));
+         }
+
+        function deleteAd() { 
+          classifiedService.del(vm.ad)
+          .then(() => $state.go('classified'));
          }
     }
  }());
