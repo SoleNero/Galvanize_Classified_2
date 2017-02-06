@@ -5,13 +5,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 
-// const messages = require('./routes/classifieds');
-
 app.use(bodyParser.json());
-// app.use('/classifieds', messages);
+
 
 
 app.use('/api/classifieds', require('./routes/classifieds'))
+
 app.use(express.static(path.join(__dirname, 'app/public')))
 //wildcard
 app.use('*', function(req, res, next) {

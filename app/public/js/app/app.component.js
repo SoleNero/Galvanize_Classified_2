@@ -6,9 +6,9 @@
             controller: controller
         });
         
-    controller.$inject = ['$http'];
-    console.log("you're in app.component");
-    function controller($http) {
+    // controller.$inject = ['$http'];
+
+    function controller() {
         const vm = this;
 
         vm.$onInit = onInit;

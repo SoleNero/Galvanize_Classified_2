@@ -1,4 +1,14 @@
   <!--post ad---------------------------------->
+    
+
+ <!--<ul>
+   <li>
+     <input type="search" name="search" ng-model="search"/>
+   </li>
+   <li>
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" srole="button">Sort By {{sortName}}<span class="caret"></span></a>  
+   </li>
+ </ul>   -->
     <h3>All Advertises</h3>
     <div class="media-left" ng-repeat="ad in $ctrl.ads | orderBy:'id'">
       <div class="col-md-12">
@@ -11,7 +21,7 @@
      </div>
     </div>
   </div>
-      <!--create new ad------------------------>
+      <!--create new ad-------------------------->
       
   <form name="form" novalidate ng-submit="$ctrl.createAd(ad)">
   <fieldset>
