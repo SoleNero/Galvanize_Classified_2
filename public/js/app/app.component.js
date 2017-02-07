@@ -7,7 +7,13 @@
     });
 
     function controller(){
-    console.log("you're in onInit app.component");
+    const vm = this;
+
+        vm.$onInit = onInit;
+        
+        function onInit() {
+          console.log("you're in onInit app.component");
+        }
   }
 }());
 

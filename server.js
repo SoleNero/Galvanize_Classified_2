@@ -12,12 +12,6 @@ app.use(bodyParser.json());
 app.use(express.static('./public'));
 app.use('/classifieds', messages);
 
-app.use('/jquery', express.static('node_modules/jquery/dist'));
-app.use('/bootstrap', express.static('node_modules/bootstrap/dist/js'));
-app.use('/angular', express.static('node_modules/angular'));
-app.use('/ui-bootsratp', express.static('node_modules/ui-bootsrtap'));
-app.use('/angular-ui-router', express.static('node_modules/angular-uirouter/release'));
-
 const port = process.env.PORT || 3000;
 
 
