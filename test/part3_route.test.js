@@ -6,7 +6,7 @@ process.env.NODE_ENV = 'test';
 const { suite, test } = require('mocha');
 const request = require('supertest');
 const knex = require('../knex');
-const app = require('../app');
+const server = require('../server');
 
 suite('Part 3: CRUD routes for classifieds resource should be created.', () => {
 
@@ -32,7 +32,7 @@ suite('Part 3: CRUD routes for classifieds resource should be created.', () => {
 
   test('GET /classifieds should return the id,title, description, price and item_image of all classifieds.', (done) => {
     /* eslint-disable max-len */
-    request(app)
+    request(server)
       .get('/classifieds')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -55,7 +55,7 @@ suite('Part 3: CRUD routes for classifieds resource should be created.', () => {
 
   test('GET /classifieds/:id should return the id,title, description, price and item_image of a single ad.', (done) => {
     /* eslint-disable max-len */
-    request(app)
+    request(server)
       .get('/classifieds/1')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
@@ -72,7 +72,7 @@ suite('Part 3: CRUD routes for classifieds resource should be created.', () => {
 
   test('POST /classifieds should create a new ad and return the id, title, description, price and item_image that were created.', (done) => {
   /* eslint-disable max-len */
-  request(app)
+  request(server)
     .post('/classifieds')
     .set('Accept', 'application/json')
     .send({
@@ -99,7 +99,7 @@ suite('Part 3: CRUD routes for classifieds resource should be created.', () => {
 
   test('PATCH /classifieds/:id should update an ad and return the id, title, description, price and item_image that were updated.', (done) => {
   /* eslint-disable max-len */
-  request(app)
+  request(server)
     .patch('/classifieds/1')
     .set('Accept', 'application/json')
     .send({
@@ -127,7 +127,7 @@ suite('Part 3: CRUD routes for classifieds resource should be created.', () => {
 
   test('DELETE /classifieds/:id should delete an ad and return the id,title, description, price, and item_image that were deleted.', (done) => {
     /* eslint-disable max-len */
-    request(app)
+    request(server)
       .del('/classifieds/2')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
