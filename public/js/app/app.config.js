@@ -16,10 +16,10 @@
       component: 'app',
     })
     .state({
-      name: 'postsList',
+      name: 'classified',
       parent: 'app',
       url: '/',
-      component: 'postsList'
+      component: 'classified'
     })
     .state({
       name: 'edit',

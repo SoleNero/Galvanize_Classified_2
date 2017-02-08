@@ -4,8 +4,9 @@
     "main": "server.js",
     "license": "MIT",
     "scripts": {
-        "start": "node server.js",
+        "start": "nodemon",
         "test": "mocha",
+        "knex": "knex",
         "heroku-postbuild": "knex migrate:latest"
     },
     "keywords": [],
@@ -18,11 +19,11 @@
     "body-parser": "^1.16.0",
     "bootstrap": "^3.3.7",
     "cookie-parser": "^1.4.3",
-    "express": "^4.14.0",
+    "express": "^4.14.1",
     "jquery": "^3.1.1",
     "knex": "^0.12.6",
-    "pg": "^6.1.0",
-    "ui-bootstrap": "^0.1.9"
+    "path": "^0.12.7",
+    "pg": "^6.1.0"
   },
     "devDependencies": {
         "chai": "^3.5.0",

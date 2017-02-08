@@ -1,22 +1,35 @@
 'use strict';
 
 const express = require('express');
-const app = express();
-const messages = require('./routes/classifieds');
+const path = require('path');
 const bodyParser = require('body-parser');
+const app = express();
 
-app.use(bodyParser.urlencoded({
-  extended:false
-}));
+// app.use('/api/classifieds', require('./routes/classifieds'))
+const messages = require('./routes/classifieds');
+const port = process.env.PORT || 5000;
+
 app.use(bodyParser.json());
-app.use(express.static('./public'));
-app.use('/classifieds', messages);
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
 
-const port = process.env.PORT || 3000;
+app.use('/classifieds',messages);
+
+app.use('*', function(req, res, next) {
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+});
+
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
 
 
 app.listen(port, () => {
-    console.log('Listening on port', port);
+  console.log('Listening on port', port);
 });
 
 module.exports = app;
+
