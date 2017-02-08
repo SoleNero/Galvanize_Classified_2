@@ -1,8 +1,10 @@
 'use strict';
-var config = require('../knexfile.js')[process.env.NODE_ENV || 'development']);
-var env = 'development';
-var knex = require('knex')(config[env]);
+// var config = require('../knexfile.js')[process.env.NODE_ENV || 'development']);
+// var env = 'development';
+// var knex = require('knex')(config[env]);
 
-module.exports = knex;
+// module.exports = knex;
 
-knex.migrate.latest([config]);
+// knex.migrate.latest([config]);
+
+module.exports = require('knex')(require('./knexfile')[process.env.NODE_ENV || 'development']);
