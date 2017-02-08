@@ -8,12 +8,6 @@ router.get('/', (req, res, next) => {
     knex('classifieds')
         .select('id', 'title', 'description', 'price', 'item_image')
         .then((data) => {
-            // data = data.map((result) => {
-            //     result.date = result.created_at;
-            //     delete result.updated_at;
-            //     delete result.created_at;
-            //     return result;
-            // });
             res.send(data);
         })
         .catch((err) => {

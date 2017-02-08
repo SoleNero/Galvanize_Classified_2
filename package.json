@@ -6,7 +6,6 @@
     "scripts": {
         "start": "nodemon",
         "test": "mocha",
-        "knex": "knex",
         "heroku-postbuild": "knex migrate:latest"
     },
     "keywords": [],
