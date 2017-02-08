@@ -2,14 +2,30 @@
   'use strict';
   angular.module('app')
     .component('postsList', {
-      tampleteUrl:'/js/posts-list/posts-list.template.html',
+      templateUrl:'/js/posts-list/posts-list.template.html',
       controller: controller
     });
 
-    controller.$inject = ['postsService'];
+    controller.$inject = ['classifiedService'];
 
-    function controller(postsService){
+    function controller(classifiedService){
       const vm = this;
-      console.log("you got to post-list.component");
+      
+      vm.$onInit = onInit;
+      vm.createAd = createAd;
+
+      function onInit(){
+        classifiedService.all()
+          .then(ads => vm.ads = ads);
+      }
+
+      function createAd(){
+        classifiedService.create(vm.ad)
+          .then(ad => {
+            vm.ad = ad;
+            vm.ads.push(ad);
+            delete vm.ad;
+          });
+      }
     }
 }());

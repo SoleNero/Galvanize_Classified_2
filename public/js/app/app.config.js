@@ -7,7 +7,7 @@
 
   function config($stateProvider, $urlRouterProvider, $locationProvider){
     $locationProvider.html5Mode(true);
-    console.log("you got to config");
+    // console.log("you got to config");
 
     $stateProvider
     .state({
@@ -20,6 +20,13 @@
       parent: 'app',
       url: '/',
       component: 'postsList'
+    })
+    .state({
+      name: 'edit',
+      parent: 'app',
+      url: '/:id/edit',
+      component:'edit'
     });
+
   }
 }());
